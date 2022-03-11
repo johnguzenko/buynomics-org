@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/buynomics",
         "index": "apps/buynomics/src/index.html",
@@ -16,9 +18,18 @@
         "inlineStyleLanguage": "less",
         "assets": [
           "apps/buynomics/src/favicon.ico",
-          "apps/buynomics/src/assets"
+          "apps/buynomics/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
         ],
-        "styles": ["apps/buynomics/src/styles.less"],
+        "styles": [
+          "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "apps/buynomics/src/styles.less"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -86,7 +97,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/buynomics"],
+      "outputs": [
+        "coverage/apps/buynomics"
+      ],
       "options": {
         "jestConfig": "apps/buynomics/jest.config.js",
         "passWithNoTests": true

@@ -16,6 +16,10 @@ const routes: Route[] = [
         (m) => m.ProductPageModule
       ),
   },
+  {
+    path: '**',
+    redirectTo: 'intermediary',
+  },
 ];
 
 @NgModule({
