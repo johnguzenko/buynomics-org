@@ -5,8 +5,8 @@
     "api-interfaces": "libs/api-interfaces",
     "buynomics": "apps/buynomics",
     "buynomics-e2e": "apps/buynomics-e2e",
-    "buynomics-intermediary": "libs/buynomics/intermediary",
-    "buynomics-product": "libs/buynomics/product",
+    "buynomics-intermediary-page": "libs/buynomics/intermediary-page",
+    "buynomics-product-page": "libs/buynomics/product-page",
     "utils": "libs/utils"
   }
 }

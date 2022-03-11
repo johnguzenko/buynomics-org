@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'buynomics-product',
+  displayName: 'buynomics-product-page',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/buynomics/product',
+  coverageDirectory: '../../../coverage/libs/buynomics/product-page',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

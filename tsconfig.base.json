@@ -16,11 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@buynomics-org/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@buynomics-org/buynomics/intermediary": [
-        "libs/buynomics/intermediary/src/index.ts"
+      "@buynomics-org/buynomics/intermediary-page": [
+        "libs/buynomics/intermediary-page/src/index.ts"
       ],
-      "@buynomics-org/buynomics/product": [
-        "libs/buynomics/product/src/index.ts"
+      "@buynomics-org/buynomics/product-page": [
+        "libs/buynomics/product-page/src/index.ts"
       ],
       "@buynomics-org/utils": ["libs/utils/src/index.ts"]
     }
