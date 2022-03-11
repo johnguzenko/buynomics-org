@@ -1,0 +1,97 @@
+{
+  "projectType": "application",
+  "root": "apps/buynomics",
+  "sourceRoot": "apps/buynomics/src",
+  "prefix": "buynomics-org",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/buynomics",
+        "index": "apps/buynomics/src/index.html",
+        "main": "apps/buynomics/src/main.ts",
+        "polyfills": "apps/buynomics/src/polyfills.ts",
+        "tsConfig": "apps/buynomics/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/buynomics/src/favicon.ico",
+          "apps/buynomics/src/assets"
+        ],
+        "styles": ["apps/buynomics/src/styles.less"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/buynomics/src/environments/environment.ts",
+              "with": "apps/buynomics/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "buynomics:build:production"
+        },
+        "development": {
+          "browserTarget": "buynomics:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/buynomics/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "buynomics:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/buynomics/src/**/*.ts",
+          "apps/buynomics/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/buynomics"],
+      "options": {
+        "jestConfig": "apps/buynomics/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

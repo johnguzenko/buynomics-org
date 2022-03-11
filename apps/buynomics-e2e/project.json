@@ -1,0 +1,28 @@
+{
+  "root": "apps/buynomics-e2e",
+  "sourceRoot": "apps/buynomics-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/buynomics-e2e/cypress.json",
+        "devServerTarget": "buynomics:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "buynomics:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/buynomics-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["buynomics"]
+}
