@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: buynomics_db
+    image: postgres:12
+    networks:
+      - web
+    environment:
+      - POSTGRES_PASSWORD=insecurepassword
+      - POSTGRES_USER=insecureuser
+      - POSTGRES_DB=buynomics
+      - PG_DATA=/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    container_name: buynomics_cache
+    image: redis:6.2-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - cache:/data
+volumes:
+  pgdata:
+  cache:
+networks:
+  web:

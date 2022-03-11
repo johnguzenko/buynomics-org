@@ -1,0 +1,41 @@
+datasource db {
+    url      = env("DATABASE_URL")
+    provider = "postgres"
+}
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["interactiveTransactions", "referentialIntegrity"]
+}
+
+enum IntermediaryType {
+    Range
+    Dropdown
+}
+
+model Intermediary {
+    id                    Int                     @id @default(autoincrement())
+    name                  String
+    order                 Int
+    type                  IntermediaryType
+    createdAt             DateTime                @default(now())
+    typeInfo              Json
+    productToIntermediary ProductToIntermediary[]
+}
+
+model Product {
+    id                    Int                     @id @default(autoincrement())
+    name                  String
+    cost                  Float
+    productToIntermediary ProductToIntermediary[]
+}
+
+model ProductToIntermediary {
+    productId      Int
+    product        Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+    intermediaryId Int
+    intermediary   Intermediary @relation(fields: [intermediaryId], references: [id], onDelete: Cascade)
+    value          Float
+
+    @@unique([productId, intermediaryId])
+}

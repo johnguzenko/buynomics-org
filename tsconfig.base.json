@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@buynomics-org/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@buynomics-org/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@buynomics-org/buynomics/intermediary": [
+        "libs/buynomics/intermediary/src/index.ts"
+      ],
+      "@buynomics-org/buynomics/product": [
+        "libs/buynomics/product/src/index.ts"
+      ],
+      "@buynomics-org/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

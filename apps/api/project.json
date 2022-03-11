@@ -46,6 +46,20 @@
         "jestConfig": "apps/api/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "migrate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma migrate dev --preview-feature --schema apps/api/src/prisma/schema.prisma"
+      }
+    },
+    "generate-client": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma generate --schema apps/api/src/prisma/schema.prisma"
+      }
     }
   },
   "tags": []

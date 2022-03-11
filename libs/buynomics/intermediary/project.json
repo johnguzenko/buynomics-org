@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/buynomics/intermediary",
+  "sourceRoot": "libs/buynomics/intermediary/src",
+  "prefix": "buynomics-org",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/buynomics/intermediary"],
+      "options": {
+        "jestConfig": "libs/buynomics/intermediary/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/buynomics/intermediary/src/**/*.ts",
+          "libs/buynomics/intermediary/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
