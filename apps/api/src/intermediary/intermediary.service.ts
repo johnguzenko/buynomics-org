@@ -18,6 +18,14 @@ export class IntermediaryService {
     private readonly intermediaryTypeValidatorService: IntermediaryTypeValidatorService
   ) {}
 
+  getAll() {
+    return this.prismaService.intermediary.findMany({
+      orderBy: {
+        order: 'asc',
+      },
+    });
+  }
+
   create(body: CreateIntermediaryDto): Promise<Intermediary> {
     try {
       this.intermediaryTypeValidatorService.validateOnCreate(

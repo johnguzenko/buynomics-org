@@ -14,52 +14,40 @@
       <th class="tui-table__th">Order</th>
       <th class="tui-table__th"></th>
     </tr>
-    <tr class="tui-table__tr">
-      <td class="tui-table__td">How to cook RxJS in an Angular app</td>
-      <td class="tui-table__td">Roman Sedov</td>
-      <td class="tui-table__td">20.06.2020</td>
-      <td class="tui-table__td">
-
-        <a tuiLink [routerLink]="['intermediary', '1']">
-            <button
+    <ng-container *ngIf="isLoading">
+      <tr class="tui-table__tr">
+        <th class="tui-table__th tui-skeleton"></th>
+        <th class="tui-table__th tui-skeleton"></th>
+        <th class="tui-table__th tui-skeleton"></th>
+        <th class="tui-table__th tui-skeleton"></th>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="!isLoading">
+      <tr class="tui-table__tr" *ngFor="let item of list;">
+        <td class="tui-table__td">{{item.createdAt | date: 'dd MMM YYYY hh:mm'}}</td>
+        <td class="tui-table__td">{{item.name}}</td>
+        <td class="tui-table__td">{{item.order}}</td>
+        <td class="tui-table__td">
+  
+          <a tuiLink [routerLink]="['intermediary', item.id]">
+              <button
+              tuiButton
+              type="button"
+              class="tui-space_right-3"
+            >
+              Edit
+            </button>
+          </a>
+         
+          <button
             tuiButton
             type="button"
-            class="tui-space_right-3"
+            (click)="onDeleteClick()"
           >
-            Edit
+            Delete
           </button>
-        </a>
-       
-        <button
-          tuiButton
-          type="button"
-          (click)="onDeleteClick()"
-        >
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr class="tui-table__tr">
-      <td class="tui-table__td">
-        Taking down the Emperor: Declarative approach
-      </td>
-      <td class="tui-table__td">Alex Inkin</td>
-      <td class="tui-table__td">26.08.2020</td>
-      <td class="tui-table__td">angular.institute</td>
-    </tr>
-    <tr class="tui-table__tr">
-      <td class="tui-table__td">
-        The 10 best Angular tips selected by the community
-      </td>
-      <td class="tui-table__td">Roman Sedov</td>
-      <td class="tui-table__td">28.07.2020</td>
-      <td class="tui-table__td">indepth.dev</td>
-    </tr>
-    <tr class="tui-table__tr">
-      <td class="tui-table__td">Agnostic components in Angular</td>
-      <td class="tui-table__td">Alex Inkin</td>
-      <td class="tui-table__td">05.08.2020</td>
-      <td class="tui-table__td">indepth.dev</td>
-    </tr>
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>

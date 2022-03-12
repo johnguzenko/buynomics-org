@@ -11,24 +11,20 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Intermediary } from '@prisma/client';
-import { PrismaService } from '../prisma/prisma.service';
 import { CreateIntermediaryDto } from './dtos/create-intermediary.dto';
 import { IntermediaryService } from './intermediary.service';
 
 @ApiTags('intermediary')
 @Controller('intermediary')
 export class IntermediaryController {
-  constructor(
-    private readonly intermediaryService: IntermediaryService,
-    private readonly prismaService: PrismaService
-  ) {}
+  constructor(private readonly intermediaryService: IntermediaryService) {}
 
   @ApiOperation({
     summary: 'Get all intermediaries',
   })
   @Get()
   getAll(): Promise<Intermediary[]> {
-    return this.prismaService.intermediary.findMany();
+    return this.intermediaryService.getAll();
   }
 
   @ApiOperation({
