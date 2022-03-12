@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     TuiDialogModule,
     TuiNotificationsModule,
     TuiLinkModule,
-    TuiDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],

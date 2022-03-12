@@ -1,9 +1,12 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AddFormComponent } from './add-form/add-form.component';
+import { Component, ChangeDetectionStrategy, Injector } from '@angular/core';
 import {
   TuiAppearance,
   tuiButtonOptionsProvider,
   TuiDialogService,
 } from '@taiga-ui/core';
+import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
 
 @Component({
   selector: 'buynomics-org-intermediary-page',
@@ -19,12 +22,18 @@ import {
   ],
 })
 export class IntermediaryPageComponent {
-  constructor(private readonly dialogService: TuiDialogService) {}
+  form = new FormGroup({});
+  constructor(
+    private injector: Injector,
+    private readonly dialogService: TuiDialogService
+  ) {}
 
   onEditClick() {}
   onDeleteClick() {}
 
   onAddClick() {
-    this.dialogService.open('Hi').subscribe();
+    this.dialogService
+      .open(new PolymorpheusComponent(AddFormComponent, this.injector))
+      .subscribe();
   }
 }
