@@ -14,6 +14,7 @@ import { Intermediary } from '@prisma/client';
 import { CreateIntermediaryDto } from './dtos/create-intermediary.dto';
 import { IntermediaryService } from './intermediary.service';
 
+//TODO: in all controllers we need to return the same dtos which our frontend uses
 @ApiTags('intermediary')
 @Controller('intermediary')
 export class IntermediaryController {

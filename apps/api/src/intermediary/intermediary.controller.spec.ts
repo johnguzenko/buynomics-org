@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { IntermediaryController } from './intermediary.controller';
 
+//TODO cover all services and controllers with unit tests
 describe('IntermediaryController', () => {
   let controller: IntermediaryController;
 

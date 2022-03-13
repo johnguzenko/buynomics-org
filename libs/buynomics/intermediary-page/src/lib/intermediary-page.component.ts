@@ -1,4 +1,4 @@
-import { finalize, switchMap, tap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { AddFormComponent } from './add-form/add-form.component';
@@ -16,6 +16,7 @@ import {
 import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
 import { IntermediaryDto } from '@buynomics-org/api-interfaces';
 
+//TODO cover all services and components with unit tests
 @Component({
   selector: 'buynomics-org-intermediary-page',
   templateUrl: './intermediary-page.component.html',
@@ -41,6 +42,7 @@ export class IntermediaryPageComponent {
   ) {}
 
   ngOnInit() {
+    //TODO unsubscribe, to prevent memory leak
     this.uploadList().subscribe();
   }
 

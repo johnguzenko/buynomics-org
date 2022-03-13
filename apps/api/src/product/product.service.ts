@@ -32,7 +32,7 @@ export class ProductService {
       },
     });
 
-    //TODO cache it
+    //TODO cache it with distributed cache
     return products.map((product) => {
       return {
         ...product,
@@ -156,7 +156,7 @@ export class ProductService {
     await this.prismaService.product.delete({ where: { id } });
   }
 
-  //TODO: of course we need to move these code to a separated module like here apps/api/src/intermediary/intermediary-type-validator
+  //TODO: of course we need to move this code to a separated module like here apps/api/src/intermediary/intermediary-type-validator
   private validateIntermediaryValue(value: number, intermediary: Intermediary) {
     if (intermediary.type === 'Dropdown') {
       if (

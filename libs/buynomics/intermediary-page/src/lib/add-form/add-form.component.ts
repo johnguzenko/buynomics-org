@@ -85,6 +85,7 @@ export class AddFormComponent {
   onSubmit(event: Event) {
     event.preventDefault();
 
+    //TODO to move all http requests to special lib, libs/api-client
     this.httpClient
       .post('/api/intermediary', {
         name: this.form.controls['name'].value,
